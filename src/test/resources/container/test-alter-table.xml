@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<migration xmlns="http://ebean-orm.github.io/xml/ns/dbmigration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://ebean-orm.github.io/xml/ns/dbmigration http://ebean-orm.github.io/xml/ns/dbmigration-1.0.xsd">
+
+  <changeSet type="apply">
+
+    <addColumn tableName="foo">
+      <column name="some_id" type="integer" references="bar.id" foreignKeyName="fk_foo_some_id" foreignKeyIndex="idx_foo_some_id"/>
+    </addColumn>
+
+    <addColumn tableName="foo">
+      <column name="dbarray_added_to_foo" type="varchar[]"/>
+    </addColumn>
+
+    <addColumn tableName="foo">
+      <column name="dbarray_ninety" type="varchar[](90)"/>
+    </addColumn>
+
+    <addColumn tableName="foo">
+      <column name="dbarray_integer" type="integer[](90)"/>
+    </addColumn>
+
+    <addColumn tableName="foo">
+      <column name="dbarray_integer" type="integer[]"/>
+    </addColumn>
+
+    <addColumn tableName="foo">
+      <column name="status" type="integer" checkConstraint="check ( status in (0,1))" checkConstraintName="ck_ordering_status"/>
+    </addColumn>
+
+  </changeSet>
+
+</migration>
